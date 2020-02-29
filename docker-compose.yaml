@@ -1,0 +1,27 @@
+# https://codeburst.io/learn-react-js-build-a-portfolio-single-page-application-spa-ba001082a711
+
+version: '3'
+services:
+  nodews:
+    image: node:12
+    working_dir: /spa_website
+    container_name: nodejs-dev
+    command:
+      - npx create-react-app Portfolio_Website_ReactJS
+      - cd Portolio_Website_ReactJS
+      - mkdir components contents image
+      - touch components/Navbar.js
+      - touch components/NavItem.js
+      - touch components/Social.js
+      - touch components/Widecard.js
+      - touch contents/Home.js
+      - touch contents/About.js
+      - touch contents/Education.js
+      - touch contents/Skills.js
+      - touch contents/Contact.js
+    volumes:
+      - ./spa_website:/spa_website
+    ports:
+      - "8888:8888"
+    stdin_open: true
+    tty: true
